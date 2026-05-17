@@ -16,7 +16,9 @@ interface AgentModelProps {
 interface AntigravityAgentProps {
   className?: string;
   accentColor?: string;
+  onLoaded?: () => void;
 }
+
 
 /**
  * Componente interno que renderiza el núcleo tecnológico 3D.
@@ -90,7 +92,8 @@ const AgentModel: React.FC<AgentModelProps> = ({ accentColor }) => {
  */
 export const AntigravityAgent: React.FC<AntigravityAgentProps> = ({ 
   className = "", 
-  accentColor = "#00d4aa" 
+  accentColor = "#00d4aa",
+  onLoaded
 }) => {
   return (
     <div className={`absolute inset-0 w-full h-full z-0 pointer-events-none ${className}`}>
@@ -100,6 +103,7 @@ export const AntigravityAgent: React.FC<AntigravityAgentProps> = ({
         gl={{ antialias: true, alpha: true }}
         onCreated={({ gl }) => {
           gl.setClearColor(new THREE.Color('#000000'), 0);
+          if (onLoaded) onLoaded();
         }}
       >
         {/* Iluminación de Estudio */}

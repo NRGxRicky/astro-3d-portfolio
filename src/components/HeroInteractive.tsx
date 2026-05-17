@@ -74,10 +74,13 @@ const tabRoles: TabData[] = [
 export default function HeroInteractive() {
   const [activeTab, setActiveTab] = useState<number>(0);
   const [animate, setAnimate] = useState<boolean>(true);
+  const [webglLoaded, setWebglLoaded] = useState<boolean>(false);
 
   const handleTabChange = (index: number) => {
     if (index === activeTab) return;
     setAnimate(false);
+    // Reset loader feedback state smoothly on role shift
+    setWebglLoaded(false);
     setTimeout(() => {
       setActiveTab(index);
       setAnimate(true);
@@ -105,8 +108,18 @@ export default function HeroInteractive() {
 
         {/* Agente Antigravity en 3D (R3F) - Posicionado en el lado derecho de la tarjeta */}
         <div className="absolute inset-0 w-full h-full z-10 pointer-events-none flex justify-end items-center">
-          <div className="w-full md:w-1/2 h-2/3 md:h-full relative opacity-85 md:opacity-100">
-            <AntigravityAgent accentColor={role.color} />
+          <div className="w-full md:w-1/2 h-2/3 md:h-full relative opacity-85 md:opacity-100 flex items-center justify-center">
+            {/* Loader orbital dinámico premium */}
+            {!webglLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 animate-pulse transition-opacity duration-500">
+                <div className="relative w-32 h-32 flex items-center justify-center animate-pulse">
+                  <div className="absolute inset-0 rounded-full border border-dashed border-text-muted/30 animate-spin" style={{ animationDuration: '6s' }}></div>
+                  <div className="absolute w-24 h-24 rounded-full border border-dashed border-text-muted/15 animate-spin" style={{ animationDuration: '3s', animationDirection: 'reverse' }}></div>
+                  <div className="w-6 h-6 rounded-full blur-[4px] transition-colors duration-500" style={{ backgroundColor: role.color, opacity: 0.6 }}></div>
+                </div>
+              </div>
+            )}
+            <AntigravityAgent accentColor={role.color} onLoaded={() => setWebglLoaded(true)} />
           </div>
         </div>
 

@@ -46,14 +46,14 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  // Navbar scroll effect
+  // Navbar scroll effect with high-end docking feel
   window.addEventListener('scroll', () => {
     if (window.scrollY > 30) {
-      navbar?.classList.add('py-2.5', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]');
-      navbar?.classList.remove('py-3', 'bg-[#0c0c0f]/95');
+      navbar?.classList.add('py-2', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]', 'top-3', 'max-w-[85vw]');
+      navbar?.classList.remove('py-3', 'bg-[#0c0c0f]/95', 'top-6', 'max-w-5xl');
     } else {
-      navbar?.classList.remove('py-2.5', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]');
-      navbar?.classList.add('py-3', 'bg-[#0c0c0f]/95');
+      navbar?.classList.remove('py-2', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]', 'top-3', 'max-w-[85vw]');
+      navbar?.classList.add('py-3', 'bg-[#0c0c0f]/95', 'top-6', 'max-w-5xl');
     }
   });
 
