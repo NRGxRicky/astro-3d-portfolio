@@ -1,6 +1,6 @@
 ---
 ---
-<nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-5xl py-3 px-6 md:px-8 bg-[#0c0c0f]/95 border border-white/10 rounded-full text-white shadow-[0_12px_35px_rgba(0,0,0,0.18)] transition-all duration-400 ease-in-out flex justify-between items-center select-none">
+<nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-7xl py-3 px-6 md:px-8 bg-[#0c0c0f]/95 border border-white/10 rounded-full text-white shadow-[0_12px_35px_rgba(0,0,0,0.18)] transition-all duration-400 ease-in-out flex justify-between items-center select-none">
   <!-- Logo -->
   <a href="#inicio" class="font-mono text-base sm:text-lg font-bold text-white tracking-wider hover:opacity-85 transition-opacity">
     &lt;RD<span class="text-white/40 font-normal">/&gt;</span>
@@ -49,11 +49,11 @@
   // Navbar scroll effect with high-end docking feel
   window.addEventListener('scroll', () => {
     if (window.scrollY > 30) {
-      navbar?.classList.add('py-2', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]', 'top-3', 'max-w-[85vw]');
-      navbar?.classList.remove('py-3', 'bg-[#0c0c0f]/95', 'top-6', 'max-w-5xl');
+      navbar?.classList.add('py-2', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]', 'top-3', 'max-w-6xl');
+      navbar?.classList.remove('py-3', 'bg-[#0c0c0f]/95', 'top-6', 'max-w-7xl');
     } else {
-      navbar?.classList.remove('py-2', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]', 'top-3', 'max-w-[85vw]');
-      navbar?.classList.add('py-3', 'bg-[#0c0c0f]/95', 'top-6', 'max-w-5xl');
+      navbar?.classList.remove('py-2', 'bg-[#0c0c0f]', 'shadow-[0_12px_45px_rgba(0,0,0,0.22)]', 'top-3', 'max-w-6xl');
+      navbar?.classList.add('py-3', 'bg-[#0c0c0f]/95', 'top-6', 'max-w-7xl');
     }
   });
 

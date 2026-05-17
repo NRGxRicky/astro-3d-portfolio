@@ -96,7 +96,7 @@ export default function HeroInteractive() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(12,12,15,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(12,12,15,0.015)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(circle_at_center,black_30%,transparent_80%)] pointer-events-none z-0"></div>
 
       {/* Gran Tarjeta Bento del Hero (Estilo Zypher) */}
-      <div className="w-[92%] max-w-5xl mx-auto bg-bg-card border border-border-custom rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-sm min-h-[75vh] flex flex-col justify-center relative overflow-hidden z-20">
+      <div className="w-[92%] max-w-7xl mx-auto bg-bg-card border border-border-custom rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-sm min-h-[75vh] flex flex-col justify-center relative overflow-hidden z-20">
         
         {/* Resplandor dinámico de fondo interno de la tarjeta */}
         <div 
