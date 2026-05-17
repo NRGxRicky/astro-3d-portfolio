@@ -4,17 +4,25 @@ import { Float, PresentationControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 /**
+ * Props para el modelo interno del agente.
+ */
+interface AgentModelProps {
+  accentColor: string;
+}
+
+/**
  * Props para el componente del Agente Antigravity.
  */
 interface AntigravityAgentProps {
   className?: string;
+  accentColor?: string;
 }
 
 /**
  * Componente interno que renderiza el núcleo tecnológico 3D.
  * Incluye un núcleo central sólido y una armadura externa de wireframe.
  */
-const AgentModel: React.FC = () => {
+const AgentModel: React.FC<AgentModelProps> = ({ accentColor }) => {
   const coreRef = useRef<THREE.Mesh>(null);
   const outerRef = useRef<THREE.Mesh>(null);
 
@@ -37,11 +45,11 @@ const AgentModel: React.FC = () => {
 
   return (
     <group>
-      {/* 1. NÚCLEO INTERNO: Geometría física de alta transmisión y brillo cyan */}
+      {/* 1. NÚCLEO INTERNO: Geometría física de alta transmisión y brillo dinámico */}
       <mesh ref={coreRef} castShadow receiveShadow>
         <icosahedronGeometry args={[1.2, 2]} />
         <meshPhysicalMaterial
-          color="#00d4aa"
+          color={accentColor}
           roughness={0.1}
           metalness={0.8}
           clearcoat={1.0}
@@ -57,7 +65,7 @@ const AgentModel: React.FC = () => {
       <mesh ref={outerRef}>
         <torusKnotGeometry args={[1.8, 0.12, 120, 16, 3, 4]} />
         <meshStandardMaterial
-          color="#00d4aa"
+          color={accentColor}
           wireframe={true}
           transparent={true}
           opacity={0.4}
@@ -67,7 +75,7 @@ const AgentModel: React.FC = () => {
 
       {/* 3. EFECTO DE RESPLANDOR INTERNO: Un punto de luz que pulsa sutilmente */}
       <pointLight 
-        color="#00d4aa" 
+        color={accentColor} 
         intensity={2.5} 
         distance={8} 
         decay={2}
@@ -80,7 +88,10 @@ const AgentModel: React.FC = () => {
  * Componente principal del Agente Antigravity.
  * Integra la escena 3D, controles de cámara interactivos y efectos físicos.
  */
-export const AntigravityAgent: React.FC<AntigravityAgentProps> = ({ className = "" }) => {
+export const AntigravityAgent: React.FC<AntigravityAgentProps> = ({ 
+  className = "", 
+  accentColor = "#00d4aa" 
+}) => {
   return (
     <div className={`absolute inset-0 w-full h-full z-0 pointer-events-none ${className}`}>
       <Canvas
@@ -94,11 +105,11 @@ export const AntigravityAgent: React.FC<AntigravityAgentProps> = ({ className = 
         {/* Iluminación de Estudio */}
         <ambientLight intensity={0.4} />
         
-        {/* Luz direccional frontal con coloración cyan */}
+        {/* Luz direccional frontal con coloración dinámica */}
         <directionalLight 
           position={[5, 5, 5]} 
           intensity={1.5} 
-          color="#00d4aa"
+          color={accentColor}
         />
         
         {/* Luz de contra para contorno (Backlight) */}
@@ -130,7 +141,7 @@ export const AntigravityAgent: React.FC<AntigravityAgentProps> = ({ className = 
             floatIntensity={1.2} // Intensidad de la oscilación vertical
             floatingRange={[-0.2, 0.2]} // Rango de movimiento vertical
           >
-            <AgentModel />
+            <AgentModel accentColor={accentColor} />
           </Float>
         </PresentationControls>
       </Canvas>
