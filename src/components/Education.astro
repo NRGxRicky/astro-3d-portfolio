@@ -1,137 +1,120 @@
 ---
 ---
-<section id="formacion" class="py-24 md:py-32 bg-bg-primary relative">
-  <!-- Brillos sutiles de fondo -->
-  <div class="absolute right-0 top-1/4 w-[35vw] h-[35vw] bg-accent-glow/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto px-6 md:px-12">
+<section id="formacion" class="py-24 md:py-32 bg-bg-primary relative select-none">
+  <div class="max-w-5xl mx-auto px-6 md:px-12">
     <!-- Header de sección -->
-    <div class="reveal text-center mb-20">
-      <span class="font-mono text-xs text-accent uppercase tracking-widest block mb-3">Formación</span>
-      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">Educación & Certificaciones</h2>
-      <p class="text-text-secondary max-w-xl mx-auto text-base md:text-lg">Mi recorrido académico y mis acreditaciones oficiales en gestión y desarrollo.</p>
+    <div class="reveal text-center mb-16">
+      <span class="font-mono text-xs text-accent-secondary uppercase tracking-widest block mb-3">Formación</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-text-primary mb-4">Educación & Certificaciones</h2>
+      <p class="text-text-secondary max-w-xl mx-auto text-xs sm:text-sm">Mi preparación académica y mis acreditaciones oficiales internacionales.</p>
     </div>
 
-    <!-- Timeline Container -->
-    <div class="relative max-w-4xl mx-auto mb-24">
-      <!-- Línea vertical central -->
-      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-border-custom -translate-x-1/2"></div>
-
-      <!-- Timeline Items -->
-      <div class="flex flex-col gap-12">
-        
-        <!-- Item 1: Ingeniería TIC (Lado izquierdo) -->
-        <div class="relative flex flex-col md:flex-row md:justify-start items-start md:items-center w-full reveal">
-          <!-- Nodo brillante -->
-          <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-bg-primary -translate-x-1/2 z-10 shadow-[0_0_15px_#00d4aa]"></div>
-          
-          <div class="w-full md:w-[calc(50%-2rem)] pl-12 md:pl-0 md:pr-8 md:text-right">
-            <div class="bg-bg-card border border-border-custom hover:border-accent/40 rounded-2xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-glow/5 group">
-              <span class="font-mono text-xs font-bold text-accent tracking-wider block mb-2">2013 - 2018</span>
-              <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">Ingeniería en Tecnologías de la Información y Comunicación</h3>
-              <h4 class="text-sm font-medium text-text-secondary mt-1 mb-4">Instituto Tecnológico de Puebla</h4>
-              <p class="text-sm text-text-secondary leading-relaxed">
-                Formación en ingeniería de software, redes, bases de datos y telecomunicaciones, estableciendo una sólida base técnica en desarrollo backend y administración de sistemas.
-              </p>
-            </div>
-          </div>
+    <!-- Bento Grid Académico -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20">
+      
+      <!-- Hito 1: ITP -->
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 sm:p-8 shadow-sm hover-glow flex flex-col justify-between gap-6 relative group overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-28 h-28 bg-accent-secondary/5 rounded-full blur-2xl pointer-events-none group-hover:bg-accent-secondary/10 transition-all duration-500"></div>
+        <div>
+          <span class="font-mono text-[10px] font-bold text-accent-secondary uppercase tracking-wider block mb-2">2013 - 2018</span>
+          <h3 class="text-base sm:text-lg font-extrabold text-text-primary group-hover:text-accent-secondary transition-colors duration-300">Ingeniería en Tecnologías de la Información y Comunicación</h3>
+          <h4 class="text-xs font-semibold text-text-secondary mt-1">Instituto Tecnológico de Puebla</h4>
         </div>
-
-        <!-- Item 2: Diplomado (Lado derecho) -->
-        <div class="relative flex flex-col md:flex-row md:justify-end items-start md:items-center w-full reveal">
-          <!-- Nodo brillante -->
-          <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-bg-primary -translate-x-1/2 z-10 shadow-[0_0_15px_#00d4aa]"></div>
-          
-          <div class="w-full md:w-[calc(50%-2rem)] pl-12 md:pl-8">
-            <div class="bg-bg-card border border-border-custom hover:border-accent/40 rounded-2xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-glow/5 group">
-              <span class="font-mono text-xs font-bold text-accent tracking-wider block mb-2">2020</span>
-              <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">Diplomado en Comunicación, Trabajo en Equipo y Liderazgo</h3>
-              <h4 class="text-sm font-medium text-text-secondary mt-1 mb-4">Universidad Santander</h4>
-              <p class="text-sm text-text-secondary leading-relaxed">
-                Especialización en habilidades blandas aplicadas a equipos de alto rendimiento, comunicación asertiva, resolución de conflictos y liderazgo transformacional.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        <p class="text-xs sm:text-sm text-text-secondary leading-relaxed border-t border-border-custom pt-4">
+          Formación completa en arquitectura de software, bases de datos y telecomunicaciones, estableciendo una sólida base técnica en desarrollo de sistemas empresariales.
+        </p>
       </div>
+
+      <!-- Hito 2: Liderazgo Santander -->
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 sm:p-8 shadow-sm hover-glow flex flex-col justify-between gap-6 relative group overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-28 h-28 bg-[#bf5af2]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#bf5af2]/10 transition-all duration-500"></div>
+        <div>
+          <span class="font-mono text-[10px] font-bold text-[#bf5af2] uppercase tracking-wider block mb-2">2020</span>
+          <h3 class="text-base sm:text-lg font-extrabold text-text-primary group-hover:text-[#bf5af2] transition-colors duration-300">Diplomado en Comunicación, Trabajo en Equipo y Liderazgo</h3>
+          <h4 class="text-xs font-semibold text-text-secondary mt-1">Universidad Santander</h4>
+        </div>
+        <p class="text-xs sm:text-sm text-text-secondary leading-relaxed border-t border-border-custom pt-4">
+          Especialización integral en habilidades directivas aplicadas a equipos multidisciplinarios de alto rendimiento, comunicación asertiva y negociación estratégica.
+        </p>
+      </div>
+
     </div>
 
     <!-- Certificaciones Grid -->
-    <div class="reveal mt-16">
-      <h3 class="text-2xl font-bold text-white text-center mb-10">Acreditaciones y Certificaciones</h3>
+    <div class="reveal mt-16 max-w-4xl mx-auto">
+      <h3 class="text-lg sm:text-xl font-extrabold text-text-primary text-center mb-10">Acreditaciones Internacionales</h3>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         
         <!-- Cert 1: PMP -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">💼</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">💼</div>
           <div>
-            <h4 class="text-sm font-bold text-white">Project Management Professional (PMP)</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">PMI (Project Management Institute)</span>
+            <h4 class="text-xs font-bold text-text-primary">Project Management Professional (PMP®)</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">PMI • ID: 3192323</span>
           </div>
         </div>
 
         <!-- Cert 2: CSM -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">🛡️</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">🛡️</div>
           <div>
-            <h4 class="text-sm font-bold text-white">Certified Scrum Master (CSM)</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">Scrum Alliance</span>
+            <h4 class="text-xs font-bold text-text-primary">Certified Scrum Master (CSM®)</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">Scrum Alliance</span>
           </div>
         </div>
 
         <!-- Cert 3: PMI-ACP -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">🔄</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">🔄</div>
           <div>
-            <h4 class="text-sm font-bold text-white">Agile Certified Practitioner (PMI-ACP)</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">PMI (Project Management Institute)</span>
+            <h4 class="text-xs font-bold text-text-primary">Agile Certified Practitioner (PMI-ACP®)</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">PMI</span>
           </div>
         </div>
 
         <!-- Cert 4: ITIL -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">⚙️</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">⚙️</div>
           <div>
-            <h4 class="text-sm font-bold text-white">ITIL Foundation Certification</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">AXELOS</span>
+            <h4 class="text-xs font-bold text-text-primary">ITIL® Foundation Certification</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">AXELOS</span>
           </div>
         </div>
 
         <!-- Cert 5: Google PM -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">📊</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">📊</div>
           <div>
-            <h4 class="text-sm font-bold text-white">Google Project Management</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">Google / Coursera</span>
+            <h4 class="text-xs font-bold text-text-primary">Google Project Management</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">Google / Coursera</span>
           </div>
         </div>
 
         <!-- Cert 6: Scrum Foundation -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">🧩</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">🧩</div>
           <div>
-            <h4 class="text-sm font-bold text-white">Scrum Foundation Professional</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">CertiProf</span>
+            <h4 class="text-xs font-bold text-text-primary">Scrum Foundation Professional</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">CertiProf</span>
           </div>
         </div>
 
         <!-- Cert 7: Lean Six Sigma -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">🎯</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">🎯</div>
           <div>
-            <h4 class="text-sm font-bold text-white">White Belt Lean Six Sigma</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">International Lean Six Sigma</span>
+            <h4 class="text-xs font-bold text-text-primary">White Belt Lean Six Sigma</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">IKSS Association</span>
           </div>
         </div>
 
         <!-- Cert 8: Cyber Security -->
-        <div class="bg-bg-card border border-border-custom rounded-2xl p-6 flex flex-col gap-3 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-10 h-10 bg-accent-dim rounded-xl flex items-center justify-center text-lg text-accent">🔒</div>
+        <div class="bg-bg-card border border-border-custom rounded-2xl p-5 flex flex-col gap-3 hover-glow shadow-sm">
+          <div class="w-9 h-9 bg-bg-secondary border border-border-custom rounded-xl flex items-center justify-center text-base shrink-0">🔒</div>
           <div>
-            <h4 class="text-sm font-bold text-white">Cyber Security Foundation</h4>
-            <span class="block text-[10px] text-text-muted mt-1 uppercase tracking-wider">CertiProf</span>
+            <h4 class="text-xs font-bold text-text-primary">Cyber Security Foundation</h4>
+            <span class="block text-[8px] text-text-muted mt-1 uppercase tracking-wider font-semibold">CertiProf</span>
           </div>
         </div>
 

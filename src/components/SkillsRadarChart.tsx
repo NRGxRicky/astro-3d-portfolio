@@ -48,13 +48,13 @@ export default function SkillsRadarChart() {
     // Animación de entrada de los valores desde 0 al cargar el componente
     const timer = setTimeout(() => {
       setAnimatedValues(skillsData.map(d => d.value));
-    }, 300);
+    }, 200);
     return () => clearTimeout(timer);
   }, []);
 
-  const size = 320;
+  const size = 300;
   const center = size / 2;
-  const maxRadius = 100;
+  const maxRadius = 90;
 
   // Ángulo de los vértices (Pentágono = 5 vértices, 72 grados por eje)
   const angles = [
@@ -89,32 +89,29 @@ export default function SkillsRadarChart() {
 
   // Ubicación de las etiquetas de texto alrededor del pentágono
   const labelOffsets = [
-    { x: 0, y: -22 },
-    { x: 72, y: -10 },
-    { x: 45, y: 22 },
-    { x: -45, y: 22 },
-    { x: -72, y: -10 }
+    { x: 0, y: -16 },
+    { x: 64, y: -6 },
+    { x: 42, y: 16 },
+    { x: -42, y: 16 },
+    { x: -64, y: -6 }
   ];
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto py-10 px-6 bg-bg-card/40 border border-border-custom rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden group/chart">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full select-none">
       
-      {/* Resplandor decorativo interno */}
-      <div className="absolute -left-10 -bottom-10 w-44 h-44 bg-accent-glow/10 rounded-full blur-[50px] pointer-events-none transition-all duration-700 group-hover/chart:bg-accent-glow/20"></div>
-
       {/* Lado izquierdo: El SVG del Radar Chart */}
-      <div className="relative shrink-0 select-none">
+      <div className="relative shrink-0 flex justify-center w-full lg:w-auto">
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="overflow-visible">
           <defs>
             {/* Degradado premium para el área rellena */}
             <linearGradient id="radarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00d4aa" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#00b4e0" stopOpacity="0.15" />
+              <stop offset="0%" stopColor="#0088ff" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#00c6ff" stopOpacity="0.15" />
             </linearGradient>
             
             {/* Brillo para los nodos activos */}
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feGaussianBlur stdDeviation="3" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
@@ -127,7 +124,7 @@ export default function SkillsRadarChart() {
                 key={rIdx}
                 points={ringPath}
                 fill="none"
-                stroke="rgba(255, 255, 255, 0.04)"
+                stroke="rgba(12, 12, 15, 0.08)"
                 strokeWidth="1"
               />
             );
@@ -141,8 +138,8 @@ export default function SkillsRadarChart() {
               y1={center}
               x2={point.x}
               y2={point.y}
-              stroke="rgba(255, 255, 255, 0.05)"
-              strokeWidth="1.5"
+              stroke="rgba(12, 12, 15, 0.06)"
+              strokeWidth="1"
             />
           ))}
 
@@ -150,10 +147,9 @@ export default function SkillsRadarChart() {
           <polygon
             points={skillPath}
             fill="url(#radarGrad)"
-            stroke="#00d4aa"
-            strokeWidth="2.5"
+            stroke="#0088ff"
+            strokeWidth="2"
             className="transition-all duration-700 ease-out"
-            style={{ filter: 'drop-shadow(0px 0px 8px rgba(0, 212, 170, 0.35))' }}
           />
 
           {/* Ejes y Nodos Interactivos */}
@@ -165,7 +161,7 @@ export default function SkillsRadarChart() {
                 <circle
                   cx={point.x}
                   cy={point.y}
-                  r="14"
+                  r="12"
                   fill="transparent"
                 />
                 
@@ -174,8 +170,8 @@ export default function SkillsRadarChart() {
                   <circle
                     cx={point.x}
                     cy={point.y}
-                    r="8"
-                    fill="rgba(0, 212, 170, 0.4)"
+                    r="6"
+                    fill="rgba(0, 136, 255, 0.3)"
                     filter="url(#glow)"
                   />
                 )}
@@ -184,10 +180,10 @@ export default function SkillsRadarChart() {
                 <circle
                   cx={point.x}
                   cy={point.y}
-                  r={isActive ? "5" : "4"}
-                  fill={isActive ? "#ffffff" : "#00d4aa"}
-                  stroke="#0a0a0f"
-                  strokeWidth="2"
+                  r={isActive ? "4.5" : "3.5"}
+                  fill={isActive ? "#0088ff" : "#0088ff"}
+                  stroke="#ffffff"
+                  strokeWidth="2.5"
                   className="transition-all duration-300"
                 />
               </g>
@@ -205,8 +201,8 @@ export default function SkillsRadarChart() {
                 x={point.x + offset.x}
                 y={point.y + offset.y}
                 textAnchor="middle"
-                className={`font-sans font-bold text-[10px] sm:text-xs transition-colors duration-300 cursor-pointer ${
-                  isActive ? 'fill-accent' : 'fill-text-secondary'
+                className={`font-sans font-extrabold text-[9px] sm:text-[10px] transition-colors duration-300 cursor-pointer ${
+                  isActive ? 'fill-[#0088ff]' : 'fill-[#55556a]'
                 }`}
                 onClick={() => setActiveAxis(idx)}
                 onMouseEnter={() => setActiveAxis(idx)}
@@ -220,43 +216,43 @@ export default function SkillsRadarChart() {
       </div>
 
       {/* Lado derecho: Tarjeta de detalle dinámica e interactiva */}
-      <div className="flex-1 min-w-[280px] flex flex-col justify-center min-h-[220px]">
+      <div className="flex-1 w-full lg:min-w-[280px] flex flex-col justify-center min-h-[220px]">
         {activeAxis === null ? (
           // Vista por defecto (Instrucción)
-          <div className="flex flex-col gap-4 text-center lg:text-left animate-fadeIn">
-            <div className="text-3xl">🧭</div>
-            <h4 className="text-lg font-bold text-white">Radar de Habilidades</h4>
-            <p className="text-sm text-text-secondary leading-relaxed">
+          <div className="flex flex-col gap-4 text-center lg:text-left">
+            <div className="text-2xl">🧭</div>
+            <h4 className="text-base font-bold text-text-primary">Radar de Habilidades</h4>
+            <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
               Pasa el ratón por encima de los nodos o las etiquetas del radar para explorar los detalles cuantitativos y cualitativos de mi perfil profesional híbrido.
             </p>
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start mt-2">
-              <span className="text-[10px] font-mono px-2 py-0.5 border border-border-custom rounded-md text-text-muted bg-bg-primary/20">Interactivo</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 border border-border-custom rounded-md text-text-muted bg-bg-primary/20">Métricas Reales</span>
+              <span className="text-[9px] font-mono font-bold px-2 py-0.5 border border-border-custom rounded-md text-text-muted bg-bg-secondary">Interactivo</span>
+              <span className="text-[9px] font-mono font-bold px-2 py-0.5 border border-border-custom rounded-md text-text-muted bg-bg-secondary">Métricas Reales</span>
             </div>
           </div>
         ) : (
           // Vista de Eje Activo
-          <div className="flex flex-col gap-4 animate-slideIn">
-            <div className="flex items-center justify-between gap-4 border-b border-border-custom pb-3">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center justify-between gap-4 border-b border-border-custom pb-2.5">
               <div>
-                <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">Competencia clave</span>
-                <h4 className="text-xl font-extrabold text-white mt-0.5">{skillsData[activeAxis].label}</h4>
+                <span className="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Competencia clave</span>
+                <h4 className="text-base font-extrabold text-text-primary mt-0.5">{skillsData[activeAxis].label}</h4>
               </div>
               <div className="text-right shrink-0">
-                <span className="font-mono text-3xl font-extrabold text-accent">{skillsData[activeAxis].value}%</span>
+                <span className="font-mono text-2xl font-extrabold text-accent-secondary">{skillsData[activeAxis].value}%</span>
               </div>
             </div>
             
-            <p className="text-sm text-text-secondary leading-relaxed italic">
+            <p className="text-xs text-text-secondary leading-relaxed italic">
               "{skillsData[activeAxis].description}"
             </p>
 
-            <div className="flex flex-col gap-2 mt-2">
-              <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider">Logros & Capacidades</span>
-              <ul className="list-none flex flex-col gap-2">
+            <div className="flex flex-col gap-1.5 mt-1.5">
+              <span className="text-[8px] font-mono font-bold text-text-muted uppercase tracking-wider">Logros & Capacidades</span>
+              <ul className="list-none flex flex-col gap-1.5">
                 {skillsData[activeAxis].details.map((detail, dIdx) => (
                   <li key={dIdx} className="text-xs text-text-secondary flex items-start gap-2 leading-relaxed">
-                    <span className="text-accent text-[10px] mt-0.5">▹</span>
+                    <span className="text-accent-secondary text-[8px] mt-1">▹</span>
                     <span>{detail}</span>
                   </li>
                 ))}

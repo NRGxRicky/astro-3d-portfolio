@@ -7,10 +7,8 @@ interface TabData {
   titlePrefix: string;
   titleHighlight: string;
   tagline: string;
-  color: string; // Color principal (ej. #00d4aa)
-  colorClass: string; // Clase de texto Tailwind para el color (ej. text-accent)
-  bgGlowClass: string; // Color del resplandor de fondo
-  btnClass: string; // Clase de botón degradado
+  color: string; // Color para los contadores y el agente 3D (ej. #0088ff)
+  colorClass: string; // Clase de texto Tailwind para el color (ej. text-accent-secondary)
   stats: {
     num: string;
     label: string;
@@ -26,10 +24,8 @@ const tabRoles: TabData[] = [
     titlePrefix: 'Hola, soy Ricardo Delfín — ',
     titleHighlight: 'Technical PM',
     tagline: 'Líder técnico y gestor ágil especializado en coordinar equipos multidisciplinarios de desarrollo, mitigar riesgos críticos y aumentar la visibilidad del progreso utilizando ClickUp y Jira.',
-    color: '#00d4aa',
-    colorClass: 'text-[#00d4aa]',
-    bgGlowClass: 'bg-[#00d4aa]/10',
-    btnClass: 'from-[#00d4aa] to-[#00b4e0] hover:shadow-[0_0_20px_rgba(0,212,170,0.35)]',
+    color: '#0088ff',
+    colorClass: 'text-[#0088ff]',
     stats: [
       { num: '7+', label: 'Años liderando equipos' },
       { num: '15+', label: 'Proyectos tecnológicos' },
@@ -47,8 +43,6 @@ const tabRoles: TabData[] = [
     tagline: 'Desarrollador Full Stack con amplia trayectoria diseñando lógica de servidor altamente eficiente con Java EE, PHP, Laravel, Node.js y optimizando bases de datos en MySQL y SQL Server.',
     color: '#bf5af2',
     colorClass: 'text-[#bf5af2]',
-    bgGlowClass: 'bg-[#bf5af2]/10',
-    btnClass: 'from-[#bf5af2] to-[#da5aff] hover:shadow-[0_0_20px_rgba(191,90,242,0.35)]',
     stats: [
       { num: '5+', label: 'Stacks de desarrollo' },
       { num: '+25%', label: 'Calidad de código (QA)' },
@@ -64,10 +58,8 @@ const tabRoles: TabData[] = [
     titlePrefix: 'Hola, soy Ricardo Delfín — ',
     titleHighlight: 'Solution Architect',
     tagline: 'Especialista en integración de sistemas, diseño de arquitecturas de APIs RESTful / GraphQL de alto rendimiento y mitigación proactiva de dependencias críticas en entornos híbridos.',
-    color: '#0a84ff',
-    colorClass: 'text-[#0a84ff]',
-    bgGlowClass: 'bg-[#0a84ff]/10',
-    btnClass: 'from-[#0a84ff] to-[#00c6ff] hover:shadow-[0_0_20px_rgba(10,132,255,0.35)]',
+    color: '#00d4aa',
+    colorClass: 'text-[#00d4aa]',
     stats: [
       { num: '8+', label: 'Certificaciones oficiales' },
       { num: '-30%', label: 'Riesgos de dependencia' },
@@ -95,28 +87,34 @@ export default function HeroInteractive() {
   const role = tabRoles[activeTab];
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-start overflow-hidden pt-28 pb-16 bg-[#0a0a0f] select-none">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-14 bg-bg-primary select-none">
       
       {/* Background Rejilla de Ingeniería */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(circle_at_center,black_30%,transparent_80%)] pointer-events-none z-0"></div>
-      
-      {/* Resplandor dinámico de fondo - Cambia de color dinámicamente con transiciones suaves */}
-      <div 
-        className={`absolute right-10 top-1/2 -translate-y-1/2 w-[40vw] h-[40vw] rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-1000 ease-in-out ${
-          activeTab === 0 ? 'bg-[#00d4aa]/10' : activeTab === 1 ? 'bg-[#bf5af2]/10' : 'bg-[#0a84ff]/10'
-        }`}
-      ></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(12,12,15,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(12,12,15,0.015)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(circle_at_center,black_30%,transparent_80%)] pointer-events-none z-0"></div>
 
-      {/* Agente Antigravity en 3D (R3F) - Se re-renderiza y cambia de color al instante */}
-      <div className="absolute inset-0 w-full h-full z-10 pointer-events-none">
-        <AntigravityAgent accentColor={role.color} />
-      </div>
+      {/* Gran Tarjeta Bento del Hero (Estilo Zypher) */}
+      <div className="w-[92%] max-w-5xl mx-auto bg-bg-card border border-border-custom rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-sm min-h-[75vh] flex flex-col justify-center relative overflow-hidden z-20">
+        
+        {/* Resplandor dinámico de fondo interno de la tarjeta */}
+        <div 
+          className="absolute right-[-10%] top-[10%] w-[50vw] h-[50vw] rounded-full blur-[120px] pointer-events-none z-0 transition-all duration-1000 ease-in-out opacity-25"
+          style={{
+            backgroundColor: role.color
+          }}
+        ></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-20 pointer-events-none">
-        <div className="max-w-3xl text-left flex flex-col gap-6">
+        {/* Agente Antigravity en 3D (R3F) - Posicionado en el lado derecho de la tarjeta */}
+        <div className="absolute inset-0 w-full h-full z-10 pointer-events-none flex justify-end items-center">
+          <div className="w-full md:w-1/2 h-2/3 md:h-full relative opacity-85 md:opacity-100">
+            <AntigravityAgent accentColor={role.color} />
+          </div>
+        </div>
+
+        {/* Contenido Textual - Posicionado de forma segura en el lado izquierdo */}
+        <div className="w-full md:w-[65%] text-left flex flex-col gap-5 relative z-20 pointer-events-none">
           
-          {/* Fila superior: Selector de Roles Estilo Zypher Tabs */}
-          <div className="reveal flex flex-wrap gap-2.5 sm:gap-3 p-1.5 bg-[#12121a]/80 backdrop-blur-md border border-border-custom rounded-2xl max-w-fit pointer-events-auto shadow-lg mb-4">
+          {/* Selector de Roles Estilo Zypher Tabs */}
+          <div className="reveal flex flex-wrap gap-2 p-1.5 bg-bg-secondary border border-border-custom rounded-2xl max-w-fit pointer-events-auto shadow-sm mb-2">
             {tabRoles.map((tab, idx) => {
               const isSelected = activeTab === idx;
               return (
@@ -125,7 +123,7 @@ export default function HeroInteractive() {
                   onClick={() => handleTabChange(idx)}
                   className={`px-4 py-2 text-[10px] sm:text-xs font-mono font-bold rounded-xl transition-all duration-300 cursor-pointer ${
                     isSelected 
-                      ? `bg-bg-card border border-border-custom shadow-md ${tab.colorClass}`
+                      ? 'bg-accent text-white shadow-sm border border-accent'
                       : 'text-text-muted hover:text-text-secondary border border-transparent'
                   }`}
                 >
@@ -139,24 +137,25 @@ export default function HeroInteractive() {
           <div className={`transition-all duration-300 transform ${animate ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
             
             {/* Badge de disponibilidad */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-bg-card/90 border border-border-custom rounded-full font-mono text-[10px] sm:text-xs text-text-secondary mb-5 pointer-events-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-bg-secondary border border-border-custom rounded-full font-mono text-[10px] sm:text-xs text-text-secondary mb-3 pointer-events-auto">
               <span 
                 className="w-2 h-2 rounded-full animate-pulse transition-all duration-700" 
                 style={{ 
                   backgroundColor: role.color,
-                  boxShadow: `0 0 10px ${role.color}` 
+                  boxShadow: `0 0 8px ${role.color}` 
                 }}
               ></span>
               Disponible para nuevos proyectos
             </div>
 
             {/* Título principal */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6 pointer-events-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary leading-[1.1] mb-5 pointer-events-auto">
               {role.titlePrefix}
+              <br className="hidden sm:inline" />
               <span 
                 className="transition-all duration-700 bg-gradient-to-r bg-clip-text text-transparent"
                 style={{
-                  backgroundImage: `linear-gradient(to right, ${role.color}, #ffffff)`
+                  backgroundImage: `linear-gradient(to right, ${role.color}, #0c0c0f)`
                 }}
               >
                 {role.titleHighlight}
@@ -164,52 +163,52 @@ export default function HeroInteractive() {
             </h1>
 
             {/* Descripción corta */}
-            <p className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed mb-8 max-w-xl pointer-events-auto">
+            <p className="text-xs sm:text-sm md:text-base text-text-secondary leading-relaxed mb-6 max-w-lg pointer-events-auto">
               {role.tagline}
             </p>
           </div>
 
           {/* Botones de Acción */}
-          <div className="reveal flex flex-wrap gap-4 mb-12 pointer-events-auto">
+          <div className="reveal flex flex-wrap gap-3 mb-8 pointer-events-auto">
             <a 
               href={role.actionLink} 
-              className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${role.btnClass} text-[#0a0a0f] font-bold rounded-xl transition-all duration-300 transform hover:-translate-y-[2px] shadow-lg`}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-secondary hover:text-white text-white font-bold rounded-full transition-all duration-300 transform hover:-translate-y-[2px] shadow-sm text-xs sm:text-sm"
             >
               {role.actionText}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a 
               href="/assets/CV_Ricardo_Delfin.pdf" 
               download 
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border-custom hover:border-accent hover:text-accent font-semibold rounded-xl bg-accent-dim/5 transition-all duration-300 transform hover:-translate-y-[2px]"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-border-custom hover:border-accent hover:text-accent font-semibold rounded-full bg-accent-dim transition-all duration-300 transform hover:-translate-y-[2px] text-xs sm:text-sm"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" className="animate-bounce"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" className="animate-bounce"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Descargar CV
             </a>
-            <a href="#contacto" className="inline-flex items-center gap-2 px-6 py-3 border border-border-custom hover:border-accent hover:text-accent font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-[2px]">
+            <a href="#contacto" className="inline-flex items-center gap-2 px-6 py-3 border border-border-custom hover:border-accent hover:text-accent font-semibold rounded-full transition-all duration-300 transform hover:-translate-y-[2px] text-xs sm:text-sm">
               Contactar
             </a>
           </div>
 
           {/* Sección de Estadísticas de Impacto de Rol */}
-          <div className={`border-t border-border-custom pt-8 flex flex-wrap gap-6 md:gap-10 pointer-events-auto transition-all duration-300 transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <div className={`border-t border-border-custom pt-6 flex flex-wrap gap-6 md:gap-10 pointer-events-auto transition-all duration-300 transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             {role.stats.map((stat, sIdx) => (
               <div key={sIdx} className="stat-item flex flex-col gap-0.5">
                 <div className="flex items-baseline gap-0.5">
                   <span 
-                    className="font-mono text-2xl md:text-3xl font-extrabold transition-colors duration-700"
+                    className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold transition-colors duration-700"
                     style={{ color: role.color }}
                   >
                     {stat.num.replace(/[^0-9]/g, '')}
                   </span>
                   <span 
-                    className="font-mono text-lg font-bold transition-colors duration-700"
+                    className="font-mono text-base sm:text-lg font-bold transition-colors duration-700"
                     style={{ color: role.color }}
                   >
                     {stat.num.replace(/[0-9]/g, '')}
                   </span>
                 </div>
-                <p className="text-[10px] text-text-muted uppercase tracking-wider mt-0.5 max-w-[120px] leading-snug">
+                <p className="text-[9px] sm:text-[10px] text-text-muted uppercase tracking-wider mt-0.5 max-w-[110px] leading-snug">
                   {stat.label}
                 </p>
               </div>

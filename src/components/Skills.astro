@@ -1,178 +1,245 @@
 ---
 import SkillsRadarChart from './SkillsRadarChart';
 ---
-<section id="habilidades" class="py-24 md:py-32 bg-bg-secondary relative">
-  <!-- Sutil resplandor de fondo -->
-  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] bg-accent-glow/5 rounded-full blur-[120px] pointer-events-none"></div>
+<section id="habilidades" class="py-24 md:py-32 bg-bg-primary relative select-none">
+  <!-- Sutil rejilla interna -->
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(12,12,15,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(12,12,15,0.012)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(circle_at_center,black_30%,transparent_80%)] pointer-events-none z-0"></div>
 
-  <div class="max-w-7xl mx-auto px-6 md:px-12">
+  <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
     <!-- Header de sección -->
     <div class="reveal text-center mb-16">
-      <span class="font-mono text-xs text-accent uppercase tracking-widest block mb-3">Habilidades</span>
-      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">Competencias y Tecnologías</h2>
-      <p class="text-text-secondary max-w-xl mx-auto text-base md:text-lg">El conjunto de metodologías, herramientas y lenguajes con los que gestiono y construyo software robusto.</p>
+      <span class="font-mono text-xs text-accent-secondary uppercase tracking-widest block mb-3">Habilidades</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-text-primary mb-4">Competencias & Bento Dashboard</h2>
+      <p class="text-text-secondary max-w-xl mx-auto text-xs sm:text-sm">Explora mis habilidades técnicas y directivas a través de un panel de control interactivo en tiempo real.</p>
     </div>
 
-    <!-- Radar Chart Interactivo Centerpiece -->
-    <div class="reveal mb-24">
-      <SkillsRadarChart client:only="react" />
-    </div>
-
-    <!-- Grid de Habilidades Detallado -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Panel Bento Grid Principal (Estilo Zypher) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
       
-      <!-- Categoría 1: Liderazgo de Proyectos y Liderazgo -->
-      <div class="reveal bg-bg-card border border-border-custom hover:border-accent/30 rounded-2xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-glow/5 flex flex-col gap-6">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 bg-accent-dim rounded-xl flex items-center justify-center text-2xl text-accent">💼</div>
-          <div>
-            <h3 class="text-lg font-bold text-white">Liderazgo & Agile</h3>
-            <p class="text-xs text-text-muted mt-0.5">Metodologías y gestión ágil</p>
-          </div>
+      <!-- WIDGET 1: El Radar de Competencias (Ocupa 2 cols x 2 filas en pantallas grandes) -->
+      <div class="md:col-span-2 md:row-span-2 reveal bg-bg-card border border-border-custom rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between gap-6 hover-glow relative overflow-hidden group">
+        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-accent-glow/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-accent-glow/10 transition-all duration-500"></div>
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Centro de control</span>
+          <h3 class="text-base sm:text-lg font-extrabold text-text-primary mt-0.5">Radar de Competencias Híbridas</h3>
+        </div>
+        
+        {/* Componente React hidratado */}
+        <div class="my-auto py-2">
+          <SkillsRadarChart client:only="react" />
         </div>
 
-        <!-- Tags -->
-        <div class="flex flex-wrap gap-2">
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Metodologías Ágiles</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Scrum</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Kanban</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Gestión de Riesgos</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Seguimiento de KPIs</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">ClickUp</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Jira</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Asana / MS Project</span>
-        </div>
-
-        <!-- Barras de Progreso -->
-        <div class="mt-4 flex flex-col gap-4">
-          <div class="skill-item">
-            <div class="flex justify-between items-center text-xs font-semibold mb-1.5">
-              <span class="text-white">Metodologías Ágiles (Scrum/Kanban)</span>
-              <span class="font-mono text-text-muted">98%</span>
-            </div>
-            <div class="w-full h-1.5 bg-bg-primary rounded-full overflow-hidden">
-              <div class="skill-bar h-full bg-gradient-to-r from-accent to-accent-secondary rounded-full w-0 transition-all duration-1000 ease-out" data-width="98%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="flex justify-between items-center text-xs font-semibold mb-1.5">
-              <span class="text-white">Gestión de Riesgos & KPIs</span>
-              <span class="font-mono text-text-muted">95%</span>
-            </div>
-            <div class="w-full h-1.5 bg-bg-primary rounded-full overflow-hidden">
-              <div class="skill-bar h-full bg-gradient-to-r from-accent to-accent-secondary rounded-full w-0 transition-all duration-1000 ease-out" data-width="95%"></div>
-            </div>
-          </div>
+        <div class="text-[10px] text-text-muted font-semibold border-t border-border-custom pt-4">
+          💡 Tip: Interactúa con los nodos para ver detalles específicos extraídos de mi currículum real.
         </div>
       </div>
 
-      <!-- Categoría 2: Desarrollo Backend & Bases de Datos -->
-      <div class="reveal bg-bg-card border border-border-custom hover:border-accent/30 rounded-2xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-glow/5 flex flex-col gap-6">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 bg-accent-dim rounded-xl flex items-center justify-center text-2xl text-accent">🔧</div>
-          <div>
-            <h3 class="text-lg font-bold text-white">Desarrollo Backend & DB</h3>
-            <p class="text-xs text-text-muted mt-0.5">Lógica de servidor e integridad de datos</p>
+      {/* WIDGET 2: Sprint Velocity (Agile PM Dashboard) */}
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-4 hover-glow group relative overflow-hidden">
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Productividad Ágil</span>
+          <h3 class="text-base font-extrabold text-text-primary mt-0.5">Sprint Velocity (Puntos)</h3>
+        </div>
+
+        {/* Gráfico de Barras SVG minimalista */}
+        <div class="flex items-end justify-between h-28 px-4">
+          <div class="flex flex-col items-center gap-2 w-1/5">
+            <div class="w-full bg-bg-secondary border border-border-custom rounded-t-lg h-16 group-hover:h-14 transition-all duration-500 relative flex justify-center items-end pb-1.5"><span class="font-mono text-[8px] font-bold text-text-muted">42</span></div>
+            <span class="font-mono text-[8px] text-text-muted uppercase font-bold">S24</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 w-1/5">
+            <div class="w-full bg-bg-secondary border border-border-custom rounded-t-lg h-20 group-hover:h-18 transition-all duration-500 relative flex justify-center items-end pb-1.5"><span class="font-mono text-[8px] font-bold text-text-muted">48</span></div>
+            <span class="font-mono text-[8px] text-text-muted uppercase font-bold">S25</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 w-1/5">
+            <div class="w-full bg-bg-secondary border border-border-custom rounded-t-lg h-22 group-hover:h-20 transition-all duration-500 relative flex justify-center items-end pb-1.5"><span class="font-mono text-[8px] font-bold text-text-muted">51</span></div>
+            <span class="font-mono text-[8px] text-text-muted uppercase font-bold">S26</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 w-1/5">
+            <div class="w-full bg-accent-secondary border border-accent-secondary/10 rounded-t-lg h-24 group-hover:h-[6.5rem] transition-all duration-500 relative flex justify-center items-end pb-1.5 shadow-sm"><span class="font-mono text-[8px] font-bold text-white">55</span></div>
+            <span class="font-mono text-[8px] text-accent-secondary uppercase font-bold">S27</span>
           </div>
         </div>
 
-        <!-- Tags -->
-        <div class="flex flex-wrap gap-2">
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">APIs RESTful</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">GraphQL</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Java / Java EE</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">PHP / Laravel</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Symfony / Node.js</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">MySQL / PostgreSQL</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">SQL Server</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">MongoDB</span>
-        </div>
-
-        <!-- Barras de Progreso -->
-        <div class="mt-4 flex flex-col gap-4">
-          <div class="skill-item">
-            <div class="flex justify-between items-center text-xs font-semibold mb-1.5">
-              <span class="text-white">Java / PHP / Laravel</span>
-              <span class="font-mono text-text-muted">92%</span>
-            </div>
-            <div class="w-full h-1.5 bg-bg-primary rounded-full overflow-hidden">
-              <div class="skill-bar h-full bg-gradient-to-r from-accent to-accent-secondary rounded-full w-0 transition-all duration-1000 ease-out" data-width="92%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="flex justify-between items-center text-xs font-semibold mb-1.5">
-              <span class="text-white">MySQL / PostgreSQL / SQL Server</span>
-              <span class="font-mono text-text-muted">90%</span>
-            </div>
-            <div class="w-full h-1.5 bg-bg-primary rounded-full overflow-hidden">
-              <div class="skill-bar h-full bg-gradient-to-r from-accent to-accent-secondary rounded-full w-0 transition-all duration-1000 ease-out" data-width="90%"></div>
-            </div>
-          </div>
+        <div class="border-t border-border-custom pt-3 flex items-center justify-between">
+          <span class="text-[10px] text-text-secondary font-semibold">Compromiso cumplido</span>
+          <span class="font-mono text-xs font-extrabold text-accent-secondary">98.2% (Q1)</span>
         </div>
       </div>
 
-      <!-- Categoría 3: Frontend & Control de Calidad (QA) -->
-      <div class="reveal bg-bg-card border border-border-custom hover:border-accent/30 rounded-2xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-glow/5 flex flex-col gap-6">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 bg-accent-dim rounded-xl flex items-center justify-center text-2xl text-accent">⚡</div>
-          <div>
-            <h3 class="text-lg font-bold text-white">Frontend & QA/Testing</h3>
-            <p class="text-xs text-text-muted mt-0.5">Interfaces y control de calidad</p>
+      {/* WIDGET 3: Calidad & Testing (Circular Progress Dial) */}
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-4 hover-glow group relative overflow-hidden">
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Aseguramiento de Calidad</span>
+          <h3 class="text-base font-extrabold text-text-primary mt-0.5">Code Coverage (Pruebas)</h3>
+        </div>
+
+        {/* Dial Circular en SVG */}
+        <div class="flex justify-center items-center h-28 relative">
+          <svg class="w-24 h-24 transform -rotate-90">
+            <circle cx="48" cy="48" r="38" class="stroke-bg-secondary fill-transparent" stroke-width="6" />
+            <circle cx="48" cy="48" r="38" class="stroke-accent-secondary fill-transparent transition-all duration-1000 ease-out" stroke-width="6" stroke-dasharray="238.7" stroke-dashoffset="12" stroke-linecap="round" />
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="font-mono text-lg font-extrabold text-text-primary">95%</span>
+            <span class="text-[7px] text-text-muted font-bold uppercase tracking-wider">PHPUnit / Jest</span>
           </div>
         </div>
 
-        <!-- Tags -->
-        <div class="flex flex-wrap gap-2">
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">React Native</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Next.js</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">TypeScript / JS</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">HTML5 / CSS3</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">PHPUnit / Jest</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Testing Unitario</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">Integración Continua</span>
-          <span class="font-mono text-xs px-3 py-1 bg-accent-dim/20 border border-accent/10 rounded-full text-text-secondary hover:text-accent hover:border-accent/40 cursor-default transition-all duration-300">CI/CD</span>
+        <div class="border-t border-border-custom pt-3 flex items-center justify-between">
+          <span class="text-[10px] text-text-secondary font-semibold">Incremento de calidad</span>
+          <span class="font-mono text-xs font-extrabold text-accent-secondary">+25% QA</span>
+        </div>
+      </div>
+
+      {/* WIDGET 4: Mini Tablero Kanban (Agile Workflow) */}
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-4 hover-glow group">
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Flujo de Trabajo</span>
+          <h3 class="text-base font-extrabold text-text-primary mt-0.5">Scrum Kanban Board</h3>
         </div>
 
-        <!-- Barras de Progreso -->
-        <div class="mt-4 flex flex-col gap-4">
-          <div class="skill-item">
-            <div class="flex justify-between items-center text-xs font-semibold mb-1.5">
-              <span class="text-white">TypeScript / React / Next.js</span>
-              <span class="font-mono text-text-muted">88%</span>
-            </div>
-            <div class="w-full h-1.5 bg-bg-primary rounded-full overflow-hidden">
-              <div class="skill-bar h-full bg-gradient-to-r from-accent to-accent-secondary rounded-full w-0 transition-all duration-1000 ease-out" data-width="88%"></div>
+        {/* Columnas Kanban */}
+        <div class="grid grid-cols-3 gap-2.5 my-1">
+          <div class="flex flex-col gap-1.5">
+            <span class="font-mono text-[8px] font-bold text-text-muted uppercase tracking-wider">To Do</span>
+            <div class="bg-bg-secondary border border-border-custom rounded-lg p-2 flex flex-col gap-1">
+              <span class="text-[8px] font-bold text-text-primary leading-snug">Q3 Planning</span>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="flex justify-between items-center text-xs font-semibold mb-1.5">
-              <span class="text-white">QA, Testing (PHPUnit/Jest) & CI/CD</span>
-              <span class="font-mono text-text-muted">86%</span>
-            </div>
-            <div class="w-full h-1.5 bg-bg-primary rounded-full overflow-hidden">
-              <div class="skill-bar h-full bg-gradient-to-r from-accent to-accent-secondary rounded-full w-0 transition-all duration-1000 ease-out" data-width="86%"></div>
+          <div class="flex flex-col gap-1.5">
+            <span class="font-mono text-[8px] font-bold text-text-muted uppercase tracking-wider">Doing</span>
+            <div class="bg-[#0088ff]/5 border border-[#0088ff]/20 rounded-lg p-2 flex flex-col gap-1 shadow-sm">
+              <span class="text-[8px] font-bold text-[#0088ff] leading-snug">API Sync</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0088ff] animate-pulse"></span>
             </div>
           </div>
+          <div class="flex flex-col gap-1.5">
+            <span class="font-mono text-[8px] font-bold text-text-muted uppercase tracking-wider">Done</span>
+            <div class="bg-bg-secondary/40 border border-border-custom/50 rounded-lg p-1.5 flex flex-col gap-1 opacity-70">
+              <span class="text-[7px] font-bold text-text-secondary line-through leading-snug">Jira Sync</span>
+              <span class="text-[7px] font-mono text-accent-secondary font-bold">✓ Complete</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-border-custom pt-3 flex items-center justify-between">
+          <span class="text-[10px] text-text-secondary font-semibold">Planificación activa</span>
+          <span class="font-mono text-xs font-extrabold text-accent-secondary">Jira / ClickUp</span>
+        </div>
+      </div>
+
+      {/* WIDGET 5: Stacks Tecnológicos (Ocupa 2 cols) */}
+      <div class="md:col-span-2 reveal bg-bg-card border border-border-custom rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between gap-5 hover-glow group">
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Ingeniería Web</span>
+          <h3 class="text-base font-extrabold text-text-primary mt-0.5">Stack de Tecnologías Reales</h3>
+        </div>
+
+        {/* Tags Interactivos */}
+        <div class="flex flex-wrap gap-2 my-auto">
+          {['Java EE', 'PHP', 'Laravel', 'Symfony', 'Node.js', 'Express', 'Astro', 'React', 'TypeScript', 'SQL Server', 'MySQL', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs', 'Jira', 'ClickUp'].map((tag, tIdx) => (
+            <span 
+              key={tIdx} 
+              class="font-mono text-[10px] font-bold px-3 py-1.5 bg-bg-secondary border border-border-custom rounded-full text-text-secondary hover:text-accent-secondary hover:border-accent-secondary/40 cursor-default transition-all duration-300 transform hover:scale-[1.03]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div class="border-t border-border-custom pt-3 text-[10px] text-text-secondary font-semibold">
+          Despliegues continuos utilizando integraciones robustas y bases de datos seguras.
+        </div>
+      </div>
+
+      {/* WIDGET 6: Mitigación de Riesgos y Control de Calidad */}
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-4 hover-glow group">
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Gestión de Riesgos</span>
+          <h3 class="text-base font-extrabold text-text-primary mt-0.5">Mitigación Técnica</h3>
+        </div>
+
+        {/* Métricas e Indicador */}
+        <div class="flex flex-col gap-2 my-1">
+          <div class="flex justify-between items-baseline">
+            <span class="font-mono text-3xl font-extrabold text-accent-secondary">-30%</span>
+            <span class="text-[9px] text-text-secondary font-bold uppercase tracking-wider">Incidentes de Dependencia</span>
+          </div>
+          <div class="w-full h-2 bg-bg-secondary border border-border-custom rounded-full overflow-hidden">
+            <div class="h-full bg-accent-secondary rounded-full w-[70%]"></div>
+          </div>
+          <p class="text-[10px] text-text-secondary leading-relaxed mt-1">
+            Reducción proactiva de acoplamiento de sistemas de negocio y APIs críticas.
+          </p>
+        </div>
+
+        <div class="border-t border-border-custom pt-3 flex items-center justify-between">
+          <span class="text-[10px] text-text-secondary font-semibold">Tasa de éxito</span>
+          <span class="font-mono text-xs font-extrabold text-accent-secondary">100% On-Time</span>
+        </div>
+      </div>
+
+      {/* WIDGET 7: Certificaciones Oficiales */}
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-4 hover-glow group">
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Crendenciales Internacionales</span>
+          <h3 class="text-base font-extrabold text-text-primary mt-0.5">Certificaciones Agile & PM</h3>
+        </div>
+
+        {/* Listado de Certificaciones con Insignias */}
+        <div class="flex flex-col gap-2.5 my-1">
+          <div class="flex items-center gap-3">
+            <span class="text-lg">🥇</span>
+            <div>
+              <h4 class="text-xs font-extrabold text-text-primary">PMP® (Project Management Professional)</h4>
+              <p class="text-[9px] text-text-muted uppercase font-bold">PMI • Lic. 3192323</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 border-t border-border-custom pt-2">
+            <span class="text-lg">🥈</span>
+            <div>
+              <h4 class="text-xs font-extrabold text-text-primary">CSM® (Certified Scrum Master)</h4>
+              <p class="text-[9px] text-text-muted uppercase font-bold">Scrum Alliance • Scrum Master</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-border-custom pt-3 flex items-center justify-between">
+          <span class="text-[10px] text-text-secondary font-semibold">Total certificaciones</span>
+          <span class="font-mono text-xs font-extrabold text-accent-secondary">8 Certificaciones</span>
+        </div>
+      </div>
+
+      {/* WIDGET 8: Integraciones Hub & APIs */}
+      <div class="reveal bg-bg-card border border-border-custom rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-4 hover-glow group">
+        <div>
+          <span class="font-mono text-[9px] font-bold text-accent-secondary uppercase tracking-wider">Sistemas de Información</span>
+          <h3 class="text-base font-extrabold text-text-primary mt-0.5">API Hub Integrations</h3>
+        </div>
+
+        {/* Checkbox List */}
+        <div class="flex flex-col gap-2 my-1">
+          <div class="flex items-center justify-between text-xs text-text-secondary">
+            <span class="font-medium">Contactus CRM API</span>
+            <span class="font-mono text-[10px] font-bold text-accent-secondary">✓ Activa</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-text-secondary border-t border-border-custom pt-2">
+            <span class="font-medium">ERP RIPIPSA Gateway</span>
+            <span class="font-mono text-[10px] font-bold text-accent-secondary">✓ Activa</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-text-secondary border-t border-border-custom pt-2">
+            <span class="font-medium">Hera Apparel Logistics</span>
+            <span class="font-mono text-[10px] font-bold text-accent-secondary">✓ Activa</span>
+          </div>
+        </div>
+
+        <div class="border-t border-border-custom pt-3 flex items-center justify-between">
+          <span class="text-[10px] text-text-secondary font-semibold">Sistemas Integrados</span>
+          <span class="font-mono text-xs font-extrabold text-accent-secondary">REST / OAuth</span>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-
-<script>
-  // Animación progresiva al entrar en pantalla
-  const skillBars = document.querySelectorAll('.skill-bar');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const bar = entry.target as HTMLElement;
-        const targetWidth = bar.getAttribute('data-width') || '0%';
-        bar.style.width = targetWidth;
-      }
-    });
-  }, { threshold: 0.2 });
-
-  skillBars.forEach(bar => observer.observe(bar));
-</script>
